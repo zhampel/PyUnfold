@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyUnfold &mdash; PyUnfold  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyUnfold  documentation" href="#"/>
+        <link rel="next" title="PyUnfold API" href="api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> PyUnfold
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">PyUnfold API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PyUnfold</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>PyUnfold</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/jrbourbeau/pyunfold" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="pyunfold">
+<h1>PyUnfold<a class="headerlink" href="#pyunfold" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="https://travis-ci.org/jrbourbeau/pyunfold"><img alt="https://travis-ci.org/jrbourbeau/pyunfold.svg?branch=master" src="https://travis-ci.org/jrbourbeau/pyunfold.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://github.com/jrbourbeau/pyunfold"><img alt="https://img.shields.io/badge/python-2.7-blue.svg" src="https://img.shields.io/badge/python-2.7-blue.svg" /></a>
+<p><em>NOTE: PyUnfold is still under active development</em></p>
+<p>PyUnfold is a Python implementation the D’Agostini iterative Bayesian unfolding method <a class="footnote-reference" href="#id3" id="id1">[1]</a>. PyUnfold was originally developed by <a class="reference external" href="https://github.com/zhampel">Zigfried Hampel-Arias</a> and can found in this <a class="reference external" href="https://github.com/zhampel/PyUnfold">GitHub repository</a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The latest development version of PyUnfold can be install directly from GitHub</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/jrbourbeau/pyunfold.git
+</pre></div>
+</div>
+<p>or you can <a class="reference external" href="https://guides.github.com/activities/forking/">fork</a> the <a class="reference external" href="https://github.com/jrbourbeau/pyunfold">GitHub repository</a> and install PyUnfold on your local machine via</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/&lt;your-username&gt;/pyunfold.git
+pip install pyunfold
+</pre></div>
+</div>
+</div>
+<div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyunfold</span> <span class="kn">import</span> <span class="n">iterative_unfold</span>
+
+<span class="c1"># Counts distributions</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+<span class="n">data_err</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">]</span>
+<span class="c1"># Response matrix</span>
+<span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]]</span>
+<span class="n">response_err</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]]</span>
+<span class="c1"># Detection efficiencies</span>
+<span class="n">efficiencies</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">efficiencies_err</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="c1"># Perform iterative unfolding</span>
+<span class="n">unfolded</span> <span class="o">=</span> <span class="n">iterative_unfold</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_err</span><span class="p">,</span>
+                            <span class="n">response</span><span class="p">,</span> <span class="n">response_err</span><span class="p">,</span>
+                            <span class="n">efficiencies</span><span class="p">,</span> <span class="n">efficiencies_err</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The returned unfolded result is a dictionary containing:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">unfolded</span></code>: Unfolded cause distribution</li>
+<li><code class="docutils literal notranslate"><span class="pre">stat_err</span></code>: Statistical (Poisson) errors</li>
+<li><code class="docutils literal notranslate"><span class="pre">sys_err</span></code>: Systematic errors associated with limited statistics in the response matrix</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;unfolded&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mf">94.48002622</span><span class="p">,</span> <span class="mf">155.51997378</span><span class="p">]),</span>
+ <span class="s1">&#39;sys_err&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.66204237</span><span class="p">,</span> <span class="mf">0.6620424</span> <span class="p">]),</span>
+ <span class="s1">&#39;stat_err&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mf">11.2351567</span> <span class="p">,</span> <span class="mf">13.75617997</span><span class="p">])}</span>
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><ol class="first last upperalpha simple" start="7">
+<li>D’Agostini, “A Multidimensional unfolding method based on Bayes’ theorem”, Nucl. Instrum. Meth. A <strong>362</strong> (1995) 487.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="PyUnfold API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, James Bourbeau, Zigfried Hampel-Arias.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

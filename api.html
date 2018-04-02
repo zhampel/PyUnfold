@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyUnfold API &mdash; PyUnfold  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyUnfold  documentation" href="index.html"/>
+        <link rel="prev" title="PyUnfold" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyUnfold
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PyUnfold API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyUnfold</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>PyUnfold API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/jrbourbeau/pyunfold" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyunfold-api">
+<h1>PyUnfold API<a class="headerlink" href="#pyunfold-api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pyunfold.iterative_unfold">
+<code class="descclassname">pyunfold.</code><code class="descname">iterative_unfold</code><span class="sig-paren">(</span><em>counts</em>, <em>counts_err</em>, <em>response</em>, <em>response_err</em>, <em>efficiencies</em>, <em>efficiencies_err</em>, <em>priors='Jeffreys'</em>, <em>ts='ks'</em>, <em>ts_stopping=0.01</em>, <em>max_iter=100</em>, <em>return_iterations=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyunfold/unfold.html#iterative_unfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyunfold.iterative_unfold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs iterative Bayesian unfolding</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>counts</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Input observed data distribution.</p>
+</dd>
+<dt><strong>counts_err</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Uncertainties associated with the input observed data distribution.
+Must be the same shape as counts.</p>
+</dd>
+<dt><strong>response</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Response matrix.</p>
+</dd>
+<dt><strong>response_err</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Response matrix errors.</p>
+</dd>
+<dt><strong>efficiencies</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Detection efficiencies for the observed data distribution.</p>
+</dd>
+<dt><strong>efficiencies_err</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd><p class="first last">Uncertainty in detection efficiencies.</p>
+</dd>
+<dt><strong>outfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">Path where output ROOT file will be saved.</p>
+</dd>
+<dt><strong>priors</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or array_like, optional</span></dt>
+<dd><p class="first last">Prior distribution to use in unfolding. If ‘Jeffreys’, then the
+Jeffreys (flat) prior is used. Otherwise, must be array_like with
+same shape as counts (default is ‘Jeffreys’).</p>
+</dd>
+<dt><strong>ts</strong> <span class="classifier-delimiter">:</span> <span class="classifier">{‘ks’, ‘chi2’, ‘pf’, ‘rmd’}</span></dt>
+<dd><p class="first last">Name of test statistic to use for stopping condition (default is ‘ks’).</p>
+</dd>
+<dt><strong>ts_stopping</strong> <span class="classifier-delimiter">:</span> <span class="classifier">float, optional</span></dt>
+<dd><p class="first last">Test statistic stopping condition. At each unfolding iteration, the
+test statistic is computed between the current and previous iteration.
+Once the test statistic drops below ts_stopping, the unfolding
+procedure is stopped (default is 0.01).</p>
+</dd>
+<dt><strong>max_iter</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">Maximum number of iterations to allow (default is 100).</p>
+</dd>
+<dt><strong>return_iterations</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">Whether to return unfolded distributions for each iteration
+(default is False).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>unfolded_result</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">Returned if return_iterations is False (default). Final unfolded
+distribution and associated uncertainties.</p>
+</dd>
+<dt><strong>unfolding_results</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas.DataFrame</span></dt>
+<dd><p class="first last">Returned if return_iterations is True. DataFrame containing the
+unfolded distribution and associated uncertainties at each iteration.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyunfold</span> <span class="k">import</span> <span class="n">iterative_unfold</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_err</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">12.2</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+<span class="gp">... </span>            <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">response_err</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span>
+<span class="gp">... </span>                <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">efficiencies</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">efficiencies_err</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unfolded</span> <span class="o">=</span> <span class="n">iterative_unfold</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_err</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="n">response</span><span class="p">,</span> <span class="n">response_err</span><span class="p">,</span>
+<span class="gp">... </span>                            <span class="n">efficiencies</span><span class="p">,</span> <span class="n">efficiencies_err</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">unfolded</span>
+<span class="go">{&#39;unfolded&#39;: array([ 94.48002622, 155.51997378]),</span>
+<span class="go">&#39;sys_err&#39;: array([0.66204237, 0.6620424 ]),</span>
+<span class="go">&#39;stat_err&#39;: array([11.2351567 , 13.75617997])}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="PyUnfold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, James Bourbeau, Zigfried Hampel-Arias.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
